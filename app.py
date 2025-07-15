@@ -31,9 +31,9 @@ def get_live_cases():
         headlines = [a.text.strip() for a in articles[:5]]
         
         if not headlines:
-            return "⚠️ No recent headlines found. Check back later."
+            return " No recent headlines found. Check back later."
             
-        return "🗞️ Top Cybersecurity News:\n\n" + "\n".join(f"• {h}" for h in headlines)
+        return " Top Cybersecurity News:\n\n" + "\n".join(f"• {h}" for h in headlines)
         
     except Exception as e:
         print(f"[DEBUG] Scraping error: {e}")  # Log the error for debugging
@@ -45,15 +45,15 @@ def get_response(user_input):
     if "live" in user_input or "case" in user_input or "news" in user_input:
         return get_live_cases()
     elif "scam" in user_input:
-        return "🕵️‍♂️ Scams often trick users into giving up sensitive info. Be cautious!"
+        return " Scams often trick users into giving up sensitive info. Be cautious!"
     elif "phishing" in user_input:
-        return "🎣 Phishing tricks people into revealing data by impersonating trusted sources."
+        return " Phishing tricks people into revealing data by impersonating trusted sources."
     elif "password" in user_input:
-        return "🔐 Use strong passwords and enable 2FA for better protection."
+        return " Use strong passwords and enable 2FA for better protection."
     elif "privacy" in user_input:
-        return "🛡️ Don't overshare on social media. Review app permissions regularly."
+        return "Don't overshare on social media. Review app permissions regularly."
     else:
-        return "🤖 I can help with phishing, scams, passwords, or privacy. Try asking again, or ask for a live cyber case!"
+        return "I can help with phishing, scams, passwords, or privacy. Try asking again, or ask for a live cyber case!"
 
 # Gradio callback for chat interface
 def chatbot(message, history):
